@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-const Schema = mongoose.Schema;
+import { Schema, model } from "mongoose";
+import { UserSchemaEntity } from "../types";
 
-const userSchema = new Schema(
+const userSchema = new Schema<UserSchemaEntity>(
   {
     id: {
       type: Schema.Types.ObjectId,
@@ -19,4 +19,4 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = model("User", userSchema);

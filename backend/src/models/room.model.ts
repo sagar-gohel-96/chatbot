@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-const Schema = mongoose.Schema;
+import { Schema, model } from "mongoose";
+import { RoomSchemaEntity } from "../types";
 
-const roomSchema = new Schema(
+const roomSchema = new Schema<RoomSchemaEntity>(
   {
     id: {
       type: Schema.Types.ObjectId,
@@ -19,4 +19,4 @@ const roomSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Room", roomSchema);
+module.exports = model("Room", roomSchema);

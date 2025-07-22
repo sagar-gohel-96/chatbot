@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
+import { MessageSchemaEntity } from "../types";
 const Schema = mongoose.Schema;
 
-const messageSchema = new Schema(
+const messageSchema = new Schema<MessageSchemaEntity>(
   {
     id: { type: Schema.Types.ObjectId, required: true },
     body: {
@@ -9,6 +10,10 @@ const messageSchema = new Schema(
       required: true,
     },
     sendBy: {
+      type: String,
+      required: true,
+    },
+    sendByName: {
       type: String,
       required: true,
     },
