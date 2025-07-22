@@ -1,21 +1,9 @@
-import {
-  ChatInterface,
-  CreateRoomForm,
-  JoinRoomForm,
-  LoginForm,
-  RegisterForm,
-  RoomSelection,
-} from "./components";
+import { Routing } from "./routing/Routing";
 
 function App() {
   return (
-    <div className="flex flex-col gap-4">
-      <LoginForm />
-      <CreateRoomForm />
-      <JoinRoomForm />
-      <RoomSelection />
-      <RegisterForm />
-      <ChatInterface />
+    <div>
+      <Routing />
     </div>
   );
 }

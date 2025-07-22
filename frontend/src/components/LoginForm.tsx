@@ -1,8 +1,10 @@
 import { useState } from "react";
 
 import { Eye, EyeOff, Lock, MessageCircle, User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -72,7 +74,10 @@ export const LoginForm = () => {
       <div className="mt-6 text-center">
         <p className="text-gray-600">
           Don't have an account?{" "}
-          <button className="text-blue-600 hover:text-blue-700 font-medium cursor-pointer">
+          <button
+            onClick={() => navigate("/register")}
+            className="text-blue-600 hover:text-blue-700 font-medium cursor-pointer"
+          >
             Sign up
           </button>
         </p>

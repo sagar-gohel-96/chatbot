@@ -4,7 +4,7 @@ import http from "http";
 import { Server } from "socket.io";
 import cors from "cors";
 import "reflect-metadata";
-import { AppDataSource } from "./db/dbConnect";
+import dbConnect from "./db/dbConnect";
 
 dotenv.config();
 
@@ -13,16 +13,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-AppDataSource.initialize()
-  .then(() => {
-    console.log("Database connected successfully");
-  })
-  .catch((error) => {
-    console.error("Error connecting to the database:", error);
-  });
-
 const PORT = process.env.PORT || 3000;
 const server = http.createServer(app);
+
+dbConnect();
 
 const io = new Server(server, {
   cors: {
